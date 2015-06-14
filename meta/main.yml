@@ -12,5 +12,7 @@ galaxy_info:
   categories:
   - development
   - web
-dependencies: []
-  
+dependencies:
+  - { role: correcthorse.common }
+  - { role: correcthorse.python }
+  - { role: correcthorse.httpd }
