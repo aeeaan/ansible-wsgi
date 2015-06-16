@@ -15,3 +15,9 @@ WSGIPythonWarnings ignore::DeprecationWarning::
 {% endif %}
 WSGIPythonOptimize {{ wsgi_optimize }}
 WSGISocketPrefix /dev/shm/wsgi
+
+{% if wsgi_apps is defined and wsgi_apps|length > 0 %}
+{%- for vhost, wsgi_config in wsgi_apps.iteritems() -%}
+WSGIDaemonProcess {{ vhost }} processes={{ wsgi_config.processes }} threads={{ wsgi_config.threads }} user={{ wsgi_config.user }} group={{ wsgi_config.group }} umask={{ wsgi_config.umask }}
+{%- endfor -%}
+{% endif %}
