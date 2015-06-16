@@ -1,0 +1,7 @@
+
+{% if item.value.aliases is defined and item.value.aliases|length > 0 %}
+WSGIProcessGroup {{ item.key }}
+{% for scriptalias in item.value.aliases %}
+WSGIScriptAlias {{ scriptalias.location }} {{ scriptalias.target }}
+{% endfor %}
+{% endif %}
