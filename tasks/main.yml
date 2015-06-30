@@ -19,4 +19,3 @@
 - name: configure vhost mod_wsgi settings
   template: src=vhost.wsgi.conf.j2 dest="/etc/httpd/conf.d/vhost_{{ item.key }}.conf.d/wsgi.conf" mode=0644 owner=root group=root
   with_dict: wsgi_apps
-  when: wsgi_apps is defined and wsgi_apps|length > 0
