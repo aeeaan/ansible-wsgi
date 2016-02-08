@@ -3,5 +3,6 @@
 WSGIProcessGroup {{ item.key }}
 {% for scriptalias in item.value.aliases %}
 WSGIScriptAlias {{ scriptalias.location }} {{ scriptalias.target }}
+
 {% endfor %}
 {% endif %}
