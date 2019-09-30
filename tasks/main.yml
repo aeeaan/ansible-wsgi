@@ -20,7 +20,6 @@
 
 - name: configure main mod_wsgi settings
   template: src=wsgi.conf.j2  dest=/etc/httpd/conf.d/wsgi.conf mode=0644 owner=root group=root
-  when: python_base_name == 'python'
   notify: restart httpd
   tags:
     - python
