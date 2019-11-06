@@ -10,3 +10,9 @@ WSGIScriptAlias {{ scriptalias.location }} {{ scriptalias.target }}
 
 {% endfor %}
 {% endif %}
+{% if item.value.python_home %}
+WSGIPythonHome {{ item.value.python_home }}
+{% endif %}
+{% if item.value.python_path %}
+WSGIPythonPath {{ item.value.python_path }}
+{% endif %}
