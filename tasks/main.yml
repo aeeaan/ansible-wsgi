@@ -12,14 +12,21 @@
   when: wsgi_package_name is not defined
 
 - name: install mod_wsgi
-  yum: name="{{ wsgi_package_name }}" state=present
+  yum:
+    name: "{{ wsgi_package_name }}"
+    state: present
   tags:
     - python
     - wsgi
     - packages
 
 - name: configure main mod_wsgi settings
-  template: src=wsgi.conf.j2  dest=/etc/httpd/conf.d/wsgi.conf mode=0644 owner=root group=root
+  template:
+    src: wsgi.conf.j2
+    dest: /etc/httpd/conf.d/wsgi.conf
+    mode: 0644
+    owner: root
+    group: root
   notify: restart httpd
   tags:
     - python
@@ -27,7 +34,12 @@
     - configuration
 
 - name: configure vhost mod_wsgi settings
-  template: src=vhost.wsgi.conf.j2 dest="/etc/httpd/conf.d/vhost_{{ item.key }}.conf.d/wsgi.conf" mode=0644 owner=root group=root
+  template:
+    src: vhost.wsgi.conf.j2
+    dest: "/etc/httpd/conf.d/vhost_{{ item.key }}.conf.d/wsgi.conf"
+    mode: 0644
+    owner: root
+    group: root
   with_dict: "{{ wsgi_apps }}"
   tags:
     - python
