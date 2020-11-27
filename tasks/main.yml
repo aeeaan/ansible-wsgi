@@ -40,7 +40,7 @@
     mode: 0644
     owner: root
     group: root
-  with_dict: "{{ wsgi_apps }}"
+  with_dict: "{{ wsgi_vhosts }}"
   tags:
     - python
     - wsgi

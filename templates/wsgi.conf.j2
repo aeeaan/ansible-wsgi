@@ -16,10 +16,10 @@ WSGIPythonWarnings ignore::DeprecationWarning::
 WSGIPythonOptimize {{ wsgi_optimize }}
 WSGISocketPrefix /dev/shm/wsgi
 
-{% if wsgi_apps is defined and wsgi_apps|length > 0 %}
-{% for vhost, wsgi_config in wsgi_apps.items() %}
+{% if wsgi_daemons is defined and wsgi_daemons|length > 0 %}
+{% for daemon_name, wsgi_config in wsgi_daemons.items() %}
 
-WSGIDaemonProcess {{ vhost }} processes={{ wsgi_config.processes }} threads={{ wsgi_config.threads }} user={{ wsgi_config.user }} group={{ wsgi_config.group }} umask={{ wsgi_config.umask }}{% if wsgi_config.python_home is defined %} python-home={{ wsgi_config.python_home }}{% endif %}{% if wsgi_config.python_path is defined %} python-path={{ wsgi_config.python_path }}{% endif %}
+WSGIDaemonProcess {{ daemon_name }} processes={{ wsgi_config.processes }} threads={{ wsgi_config.threads }} user={{ wsgi_config.user }} group={{ wsgi_config.group }} umask={{ wsgi_config.umask }}{% if wsgi_config.python_home is defined %} python-home={{ wsgi_config.python_home }}{% endif %}{% if wsgi_config.python_path is defined %} python-path={{ wsgi_config.python_path }}{% endif %}
 
 {% endfor %}
 {% endif %}
