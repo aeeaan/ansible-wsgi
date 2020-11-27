@@ -49,8 +49,8 @@
 
 - name: configure main mod_wsgi settings
   template:
-    src: wsgi.conf.j2
-    dest: /etc/httpd/conf.d/wsgi.conf
+    src: 10-wsgi-settings.conf.j2
+    dest: /etc/httpd/conf.d/10-wsgi-settings.conf
     mode: 0644
     owner: root
     group: root
