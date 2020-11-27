@@ -20,6 +20,33 @@
     - wsgi
     - packages
 
+#template both python 2 and 3 module config files as a precaution
+- name: configure python 2 mod_wsgi module
+  template:
+    src: 10-wsgi.conf.j2
+    dest: /etc/httpd/conf.modules.d/10-wsgi.conf
+    mode: 0644
+    owner: root
+    group: root
+  notify: restart httpd
+  tags:
+    - python
+    - wsgi
+    - configuration
+
+- name: configure python 3 mod_wsgi module
+  template:
+    src: 10-wsgi-python3.conf.j2
+    dest: /etc/httpd/conf.modules.d/10-wsgi-python3.conf
+    mode: 0644
+    owner: root
+    group: root
+  notify: restart httpd
+  tags:
+    - python
+    - wsgi
+    - configuration
+
 - name: configure main mod_wsgi settings
   template:
     src: wsgi.conf.j2
