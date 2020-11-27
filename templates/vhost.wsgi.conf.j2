@@ -1,6 +1,6 @@
 
 {% if item.value.aliases is defined and item.value.aliases|length > 0 %}
 {% for scriptalias in item.value.aliases %}
-WSGIScriptAlias {{ scriptalias.location }} {{ scriptalias.target }} process-group={{ scriptalias.processgroup|default('%GLOBAL') }} application-group={{ scriptalias.applicationgroup|default('%RESOURCE') }}
+WSGIScriptAlias {{ scriptalias.location }} {{ scriptalias.target }} process-group={{ scriptalias.processgroup|default('%{GLOBAL}') }} application-group={{ scriptalias.applicationgroup|default('%{RESOURCE}') }}
 {% endfor %}
 {% endif %}
