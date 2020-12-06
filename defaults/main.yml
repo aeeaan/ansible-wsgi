@@ -8,15 +8,15 @@ wsgi_dont_write_bytecode: 'On'
 
 wsgi_lang: 'en_US.UTF-8'
 wsgi_locale: 'en_US.UTF-8'
-wsgi_queue-timeout: 45
-wsgi_socket-timeout: 60
-wsgi_connect-timeout: 15
-wsgi_request-timeout: 60
-wsgi_inactivity-timeout: 0
-wsgi_startup-timeout: 15
-wsgi_deadlock-timeout: 60
-wsgi_graceful-timeout: 15
-wsgi_eviction-timeout: 0
-wsgi_restart-interval: 0
-wsgi_shutdown-timeout: 5
-wsgi_maximum-requests: 0
+wsgi_queue_timeout: 45
+wsgi_socket_timeout: 60
+wsgi_connect_timeout: 15
+wsgi_request_timeout: 60
+wsgi_inactivity_timeout: 0
+wsgi_startup_timeout: 15
+wsgi_deadlock_timeout: 60
+wsgi_graceful_timeout: 15
+wsgi_eviction_timeout: 0
+wsgi_restart_interval: 0
+wsgi_shutdown_timeout: 5
+wsgi_maximum_requests: 0
