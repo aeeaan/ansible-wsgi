@@ -11,6 +11,7 @@ Role Variables
 | wsgi_embedded				| false					| 					|
 | wsgi_ignore_deprecation		| true					|					|
 | wsgi_optimize				| 0					|					|
+| wsgi_dont_write_bytecode  | On  |         |
 
 Dependencies
 ------------

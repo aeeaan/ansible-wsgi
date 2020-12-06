@@ -1,5 +1,5 @@
 # {{ ansible_managed }}
-
+WSGIDontWriteBytecode {{ wsgi_dont_write_bytecode }}
 {% if not wsgi_embedded %}
 WSGIRestrictEmbedded on
 {% endif %}
